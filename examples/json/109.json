@@ -1,0 +1,183 @@
+[
+  {
+    "name": "head",
+    "fieldset": "GroupFieldset",
+    "panelTitle": "宽版视频样式-头部物料",
+    "fields": [
+      {
+        "name": "title",
+        "control": "RedWordInput",
+        "label": "主标题",
+        "rules": {"required": true, "minBytesWithFilter": 10, "maxBytesWithFilter": 28}
+      },
+      {
+        "name": "titleLink",
+        "control": "Input",
+        "defaultValue": "http://",
+        "label": "标题链接",
+        "rules": {"required": true, "url": true, "maxBytes": 256}
+      },
+      {
+        "name": "description",
+        "control": "TextArea",
+        "label": "描述",
+        "rules": {"required": true, "minBytes": 120, "maxBytes": 170}
+      },
+      {
+        "name": "showUrl",
+        "control": "Input",
+        "label": "品牌主URL显示",
+        "rules": {"required": true, "maxBytes": 30}
+      },
+      {
+        "name": "smallImageList",
+        "fieldset": "ListFieldset",
+        "length": 3,
+        "fields": [
+          {
+            "name": "image",
+            "control": "ImageUpload",
+            "label": "小图",
+            "rules": {"imageRequired": true},
+            "tips": "图片尺寸：120x65，不超过15k，jpg/png 格式",
+            "uploadRules": {
+              "size": 15,
+              "types": ["jpg", "png"],
+              "key": "109-head-smallImageList-image"
+            }
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "小图链接",
+            "defaultValue": "http://",
+            "rules": {"required": true, "url": true, "maxBytes": 256}
+          }
+        ]
+      },
+      {
+        "name": "leftVideo",
+        "control": "VideoUpload",
+        "label": "左侧视频",
+        "rules": [
+          {"required": true, "message": "请上传视频"}
+        ],
+        "tips": "大小不超过10M，MP4格式。",
+        "uploadRules": {
+          "size": 10240,
+          "key": "109-head-leftVideo"
+        }
+      },
+      {
+        "name": "leftVideoThumb",
+        "control": "ImageUpload",
+        "label": "左侧视频缩略图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：244x174，不超过30k，jpg格式",
+        "uploadRules": {
+          "size": 30,
+          "types": ["jpg"],
+          "key": "109-head-leftVideoThumb"
+        }
+      },
+      {
+        "name": "leftVideoLink",
+        "control": "Input",
+        "label": "视频缩略图链接",
+        "defaultValue": "http://",
+        "rules": {"required": true, "url": true, "maxBytes": 256}
+      }
+    ],
+    "submit": true
+  },
+  {
+    "name": "tabList",
+    "fieldset": "TabFieldset",
+    "panelTitle": "宽版视频样式-Tab物料",
+    "length": [3, 4, 5, 6],
+    "numLabel": "中部Tab个数",
+    "fields": [
+      {
+        "name": "name",
+        "control": "Input",
+        "label": "Tab名称",
+        "rules": {"required": true, "maxBytes": 12}
+      },
+      {
+        "name": "image",
+        "control": "ImageUpload",
+        "label": "Tab页主图片",
+        "rules": { "imageRequired": true },
+        "tips": "图片尺寸：245x120，不超过20k，jpg格式。",
+        "uploadRules": {
+          "size": 20,
+          "types": ["jpg"],
+          "key": "109-tabList-image"
+        }
+      },
+      {
+        "name": "imageLink",
+        "control": "Input",
+        "label": "Tab主图片链接",
+        "defaultValue": "http://",
+        "rules": {"required": true, "url": true, "maxBytes": 256 }
+      },
+      {
+        "name": "description",
+        "control": "TextArea",
+        "label": "Tab产品描述",
+        "rules": {"required": true, "minBytes": 60, "maxBytes": 115}
+      },
+      {
+        "name": "descriptionLink",
+        "control": "Input",
+        "label": "产品描述链接",
+        "defaultValue": "http://",
+        "rules": {"required": true, "url": true, "maxBytes": 256 }
+      },
+      {
+        "name": "columnList",
+        "fieldset": "ListFieldset",
+        "length": 3,
+        "fields": [
+          {
+            "name": "title",
+            "control": "Input",
+            "label": "栏目标题",
+            "rules": { "required": true, "maxBytes": 50 }
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "栏目链接",
+            "defaultValue": "http://",
+            "rules": {"required": true, "url": true, "maxBytes": 256}
+          }
+        ]
+      }
+    ],
+    "submit": true
+  },
+  {
+    "name": "buttonList",
+    "fieldset": "ListFieldset",
+    "panelTitle": "宽版视频样式-底部按钮物料",
+    "length": [3,4,5,6],
+    "numLabel": "底部按钮数",
+    "fields": [
+      {
+        "name": "text",
+        "control": "Input",
+        "label": "按钮文字",
+        "rules": {"required": true, "maxBytes": [20,16,12,12]}
+      },
+      {
+        "name": "link",
+        "control": "Input",
+        "label": "按钮链接",
+        "defaultValue": "http://",
+        "rules": {"required": true, "url": true, "maxBytes": 256}
+      }
+    ]
+  }
+]

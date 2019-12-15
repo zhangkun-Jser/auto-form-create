@@ -1,0 +1,130 @@
+[
+  {
+    "name": "head",
+    "fieldset": "GroupFieldset",
+    "fields": [
+      {
+        "name": "title",
+        "control": "RedWordInput",
+        "label": "标题",
+        "limiter": {"max": 24},
+        "rules": {"required": true, "minBytesWithFilter":8 ,"maxBytesWithFilter":24}
+      },
+      {
+        "name": "titleLink",
+        "control": "Input",
+        "label": "标题链接",
+        "defaultValue": "http://",
+        "limiter": {"max": 512},
+        "rules": {"required": true, "url": true, "maxBytes":512}
+      },
+      {
+        "name": "logo",
+        "control": "ImageUpload",
+        "label": "Logo图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：200x200，不超过20k，jpg、gif格式。",
+        "uploadRules": {
+          "size": 20,
+          "types": ["gif","jpg"],
+          "key": "315-head-logo"
+        }
+      },
+      {
+        "name": "description",
+        "control": "TextArea",
+        "label": "文字描述",
+        "limiter": {"max": 50},
+        "rules": {"required": true, "minBytes":26 ,"maxBytes":50}
+      },
+      {
+        "name": "descriptionLink",
+        "control": "Input",
+        "label": "描述链接",
+        "limiter": {"max": 512},
+        "rules": {"required": true, "url": true, "maxBytes": 512}
+      }
+    ]
+  },
+  {
+    "name": "middle",
+    "fieldset": "GroupFieldset",
+    "fields": [
+      {
+        "name": "thumbnail",
+        "control": "ImageUpload",
+        "label": "视频缩略图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：750x320，不超过100k，jpg、gif、png格式。",
+        "uploadRules": {
+          "size": 100,
+          "types": ["gif","jpg","png"],
+          "key": "315-middle-thumbnail"
+        }
+      },
+      {
+        "name": "videoSrc",
+        "control": "VideoUpload",
+        "label": "视频文件",
+        "rules": [{"required": true, "message": "请上传视频"}],
+        "tips": "视频尺寸：375x160，不超过3m，MP4格式。",
+        "uploadRules": {
+          "size": 3072,
+          "key": "315-middle-videoSrc"
+        }
+      }
+    ]
+  },
+  {
+    "name": "bottom",
+    "fieldset": "GroupFieldset",
+    "fields": [
+      {
+        "name": "buttonList",
+        "fieldset": "ListFieldset",
+        "numLabel": "按钮数",
+        "length": 3,
+        "fields": [
+          {
+            "name": "text",
+            "control": "Input",
+            "label": "按钮文字",
+            "limiter": {"max": 14},
+            "rules": {"required": true, "maxBytes": 14}
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "按钮链接",
+            "defaultValue": "http://",
+            "limiter": {"max": 512},
+            "rules": {"required": true, "url": true, "maxBytes": 512}
+          }
+        ]
+      },
+      {
+        "name": "brand",
+        "fieldset": "GroupFieldset",
+        "fields": [
+          {
+            "name": "text",
+            "control": "Input",
+            "label": "品牌文字",
+            "required": false,
+            "limiter": {"max": 12},
+            "rules": {"maxBytes": 12}
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "品牌链接",
+            "required": false,
+            "defaultValue": "http://",
+            "limiter": {"max": 512},
+            "rules": {"url": true, "maxBytes": 512}
+          }
+        ]
+      }
+    ]
+  }
+]

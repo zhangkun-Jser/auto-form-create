@@ -1,0 +1,72 @@
+[
+  {
+    "name": "title",
+    "control": "RedWordInput",
+    "label": "标题",
+    "limiter": {"max": 24},
+    "rules": {"required": true, "maxBytes":24}
+  },
+  {
+    "name": "link",
+    "control": "Input",
+    "label": "链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"url": true, "maxBytes":512}
+  },
+  {
+    "name": "description",
+    "control": "TextArea",
+    "label": "描述",
+    "limiter": {"max": 50},
+    "rules": {"required": true, "maxBytes":50}
+  },
+  {
+    "name": "descriptionLink",
+    "control": "LinkTextArea",
+    "label": "描述(带链接词)",
+    "limiter": {"max": 50},
+    "rules": {"required": true, "minBytes":30, "maxBytes":50}
+  },
+  {
+    "name": "image",
+    "control": "ImageUpload",
+    "label": "图片",
+    "rules": [
+      {"required": true, "message": "请上传图片"}
+    ],
+    "uploadRules": {
+      "size": 20,
+      "types": ["png"],
+      "key": "200x100"
+    }
+  },
+  {
+    "name": "date",
+    "control": "DateTimeInput",
+    "label": "日期",
+    "rules": {"required": true}
+  },
+  {
+    "name": "bgColor",
+    "control": "RadioGroup",
+    "label": "背景色",
+    "rules": {"required": true},
+    "defaultValue":"white",
+    "options": [
+      {"value": "black", "text": "黑色"},
+      {"value": "white", "text": "白色"}
+    ]
+  },
+  {
+    "name": "color",
+    "control": "Select",
+    "label": "颜色",
+    "rules": {"required": true},
+    "defaultValue":"white",
+    "options": [
+      {"value": "black", "text": "黑色"},
+      {"value": "white", "text": "白色"}
+    ]
+  }
+]

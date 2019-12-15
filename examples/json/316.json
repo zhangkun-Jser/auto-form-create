@@ -1,0 +1,115 @@
+[
+  {
+    "name": "head",
+    "fieldset": "GroupFieldset",
+    "fields": [
+      {
+        "name": "thumbnail",
+        "control": "ImageUpload",
+        "label": "视频缩略图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：750x320，不超过100k，jpg、gif、png格式。",
+        "uploadRules": {
+          "size": 100,
+          "types": ["gif","jpg","png"],
+          "key": "316-head-thumbnail"
+        }
+      },
+      {
+        "name": "videoSrc",
+        "control": "VideoUpload",
+        "label": "视频文件",
+        "rules": [{"required": true, "message": "请上传视频"}],
+        "tips": "视频尺寸：375x160，不超过3m，MP4格式。",
+        "uploadRules": {
+          "size": 3072,
+          "key": "316-head-videoSrc"
+        }
+      }
+    ]
+  },
+  {
+    "name": "imageList",
+    "fieldset": "ListFieldset",
+    "length": 4,
+    "fields": [
+      {
+        "name": "image",
+        "control": "ImageUpload",
+        "label": "小图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：240x240，不超过50k，jpg、gif、png格式。",
+        "uploadRules": {
+          "size": 50,
+          "types": ["gif","jpg","png"],
+          "key": "316-imageList-image"
+        }
+      },
+      {
+        "name": "text",
+        "control": "Input",
+        "label": "小图文字",
+        "limiter": {"max": 8},
+        "rules": {"required": true, "maxBytes": 8}
+      },
+      {
+        "name": "link",
+        "control": "Input",
+        "label": "小图链接",
+        "defaultValue": "http://",
+        "limiter": {"max": 512},
+        "rules": {"required": true, "url": true, "maxBytes": 512}
+      }
+    ]
+  },
+  {
+    "name": "bottom",
+    "fieldset": "GroupFieldset",
+    "fields": [
+      {
+        "name": "button",
+        "fieldset": "GroupFieldset",
+        "fields": [
+          {
+            "name": "text",
+            "control": "Input",
+            "label": "按钮文字",
+            "limiter": {"max": 14},
+            "rules": {"required": true, "maxBytes": 14}
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "按钮链接",
+            "defaultValue": "http://",
+            "limiter": {"max": 512},
+            "rules": {"required": true, "url": true, "maxBytes": 512}
+          }
+        ]
+      },
+      {
+        "name": "brand",
+        "fieldset": "GroupFieldset",
+        "fields": [
+          {
+            "name": "text",
+            "control": "Input",
+            "label": "品牌文字",
+            "required": false,
+            "limiter": {"max": 12},
+            "rules": {"maxBytes": 12}
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "品牌链接",
+            "required": false,
+            "defaultValue": "http://",
+            "limiter": {"max": 512},
+            "rules": {"url": true, "maxBytes": 512}
+          }
+        ]
+      }
+    ]
+  }
+]

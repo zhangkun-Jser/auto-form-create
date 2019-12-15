@@ -1,0 +1,73 @@
+[
+  {
+    "name": "bigImageList",
+    "fieldset": "ListFieldset",
+    "numLabel": "大图数",
+    "length": [1,2,3,4],
+    "fields": [
+      {
+        "name": "image",
+        "control": "ImageUpload",
+        "label": "大图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：750x320，不超过100k，jpg、gif、png格式",
+        "uploadRules": {
+          "size": 100,
+          "types": ["png","gif","jpg"],
+          "key": "314-bigImageList-image"
+        }
+      },
+      {
+        "name": "link",
+        "control": "Input",
+        "label": "大图链接",
+        "defaultValue": "http://",
+        "limiter": {"max": 512},
+        "rules": {"required": true, "url": true, "maxBytes": 512}
+      }
+    ]
+  },
+  {
+    "name": "countdownTime",
+    "control": "DateTimeInput",
+    "label": "设定时间",
+    "rules": {"required": true}
+  },
+  {
+    "name": "countdownText",
+    "control": "Input",
+    "label": "事件名称",
+    "limiter": {"max": 24},
+    "rules": {"required": true, "maxBytes": 24}
+  },
+  {
+    "name": "buttonText",
+    "control": "Input",
+    "label": "按钮文字",
+    "limiter": {"max": 14},
+    "rules": {"required": true, "maxBytes": 14}
+  },
+  {
+    "name": "buttonLink",
+    "control": "Input",
+    "label": "按钮链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"required": true, "url": true, "maxBytes": 512}
+  },
+  {
+    "name": "brandText",
+    "control": "Input",
+    "label": "品牌文字",
+    "limiter": {"max": 12},
+    "rules": {"required": true, "maxBytes": 12}
+  },
+  {
+    "name": "brandLink",
+    "control": "Input",
+    "label": "品牌链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"required": true, "url": true, "maxBytes": 512}
+  }
+]

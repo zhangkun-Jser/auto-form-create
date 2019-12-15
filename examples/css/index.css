@@ -1,0 +1,105 @@
+@import "normalize.css";
+@import "github-markdown.css";
+
+body {
+    font-family: Helvetica, arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background: #fff;
+}
+
+html,body {
+    height: 100%;
+    margin: 0;
+}
+
+a {
+    color: #4183C4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0 10px;
+    padding: 0;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    cursor: text;
+    position: relative;
+}
+
+h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+}
+
+ul,li {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    margin: 0;
+}
+
+.container-inner {
+    position: relative;
+    height: 100%;
+}
+
+.aside-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    overflow-y: scroll;
+    background: #fafafa;
+}
+
+.aside-nav>ul {
+    padding: 20px;
+}
+
+.aside-nav ul li {
+    list-style: none;
+}
+
+.aside-nav ul li a {
+    display: block;
+    padding: 5px 0;
+    color: #364149;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.aside-nav ul li a.active {
+    color: #008cff;
+}
+
+.aside-nav .sub-nav {
+    padding-left: 20px;
+}
+
+.main-body {
+    height: 100%;
+    margin-left: 250px;
+    overflow-y: auto;
+}
+
+.body-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.example {
+    padding: 5px;
+    margin-bottom: 10px;
+}

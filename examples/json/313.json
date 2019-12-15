@@ -1,0 +1,95 @@
+[
+  {
+    "name": "bigImageList",
+    "fieldset": "ListFieldset",
+    "numLabel": "大图数",
+    "length": [1,2,3,4],
+    "fields": [
+      {
+        "name": "image",
+        "control": "ImageUpload",
+        "label": "大图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：750x320，不超过100k，jpg、gif、png格式",
+        "uploadRules": {
+          "size": 100,
+          "types": ["png","gif","jpg"],
+          "key": "313-bigImageList-image"
+        }
+      },
+      {
+        "name": "link",
+        "control": "Input",
+        "label": "大图链接",
+        "defaultValue": "http://",
+        "limiter": {"max": 512},
+        "rules": {"required": true, "url": true, "maxBytes": 512}
+      }
+    ]
+  },
+  {
+    "name": "smallImageList",
+    "fieldset": "ListFieldset",
+    "numLabel": "小图数",
+    "length": 4,
+    "fields": [
+      {
+        "name": "image",
+        "control": "ImageUpload",
+        "label": "小图",
+        "rules": {"imageRequired": true},
+        "tips": "图片尺寸：240x240，不超过50k，jpg、gif、png格式",
+        "uploadRules": {
+          "size": 50,
+          "types": ["png","gif","jpg"],
+          "key": "313-smallImageList-image"
+        }
+      },
+      {
+        "name": "text",
+        "control": "Input",
+        "label": "小图文字",
+        "limiter": {"max": 8},
+        "rules": {"required": true, "maxBytes": 8}
+      },
+      {
+        "name": "link",
+        "control": "Input",
+        "label": "小图链接",
+        "defaultValue": "http://",
+        "limiter": {"max": 512},
+        "rules": {"required": true, "url": true, "maxBytes": 512}
+      }
+    ]
+  },
+  {
+    "name": "buttonText",
+    "control": "Input",
+    "label": "按钮文字",
+    "limiter": {"max": 14},
+    "rules": {"required": true, "maxBytes": 14}
+  },
+  {
+    "name": "buttonLink",
+    "control": "Input",
+    "label": "按钮链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"required": true, "url": true, "maxBytes": 512}
+  },
+  {
+    "name": "brandText",
+    "control": "Input",
+    "label": "品牌文字",
+    "limiter": {"max": 12},
+    "rules": {"required": true, "maxBytes": 12}
+  },
+  {
+    "name": "brandLink",
+    "control": "Input",
+    "label": "品牌链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"required": true, "url": true, "maxBytes": 512}
+  }
+]

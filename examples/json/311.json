@@ -1,0 +1,123 @@
+[
+  {
+    "name": "bgColor",
+    "control": "RadioGroup",
+    "label": "背景底色",
+    "defaultValue": "black",
+    "options": [
+      {"value": "black", "text": "黑色"},
+      {"value": "white", "text": "白色"}
+    ],
+    "rules": {"required": true}
+  },
+  {
+    "name": "image",
+    "control": "ImageUpload",
+    "label": "背景大图",
+    "rules": {"imageRequired": true},
+    "tips": "图片尺寸：750x750，不超过100k，jpg、gif、png格式。图片请与背景底色一致。",
+    "uploadRules": {
+      "size": 100,
+      "types": ["png","gif","jpg"],
+      "key": "3111-image"
+    }
+  },
+  {
+    "name": "imageLink",
+    "control": "Input",
+    "label": "大图链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"required": true, "url": true, "maxBytes": 512}
+  },
+  {
+    "name": "logo",
+    "control": "ImageUpload",
+    "label": "品牌Logo",
+    "rules": {"imageRequired": true},
+    "tips": "图片尺寸：240x60，不超过50k，jpg、gif、png格式",
+    "uploadRules": {
+      "size": 50,
+      "types": ["png","gif","jpg"],
+      "key": "3111-logo"
+    }
+  },
+  {
+    "name": "logoLink",
+    "control": "Input",
+    "label": "Logo链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"required": true, "url": true, "maxBytes": 512}
+  },
+  {
+    "name": "description",
+    "control": "TextArea",
+    "label": "文字描述",
+    "limiter": {"max": 32},
+    "rules": {"required": true, "maxBytes": 32}
+  },
+  {
+    "name": "buttonText",
+    "control": "Input",
+    "label": "按钮文字",
+    "limiter": {"max": 14},
+    "rules": {"required": true, "maxBytes": 14}
+  },
+  {
+    "name": "buttonLink",
+    "fieldset": "RadioFieldset",
+    "radioLabel": "按钮链接",
+    "optionFields": [
+      {
+        "option": {"value": "official", "text": "官网链接"},
+        "fields": [
+          {
+            "name": "webLink",
+            "control": "Input",
+            "label": "官网链接",
+            "defaultValue": "http://",
+            "limiter": {"max": 512},
+            "rules": {"required": true, "url": true, "maxBytes": 512}
+          }
+        ]
+      },
+      {
+        "option": {"value": "download", "text": "下载链接"},
+        "fields": [
+          {
+            "name": "iosLink",
+            "control": "Input",
+            "label": "ios下载链接",
+            "defaultValue": "http://",
+            "limiter": {"max": 512},
+            "rules": {"required": true, "url": true, "maxBytes": 512}
+          },
+          {
+            "name": "androidLink",
+            "control": "Input",
+            "label": "android下载链接",
+            "defaultValue": "http://",
+            "limiter": {"max": 512},
+            "rules": {"required": true, "url": true, "maxBytes": 512}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "brandText",
+    "control": "Input",
+    "label": "品牌文字",
+    "limiter": {"max": 12},
+    "rules": {"required": true, "maxBytes": 12}
+  },
+  {
+    "name": "brandLink",
+    "control": "Input",
+    "label": "品牌链接",
+    "defaultValue": "http://",
+    "limiter": {"max": 512},
+    "rules": {"required": true, "url": true, "maxBytes": 512}
+  }
+]

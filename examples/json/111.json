@@ -1,0 +1,136 @@
+[
+  {
+    "name": "head",
+    "fieldset": "GroupFieldset",
+    "panelTitle": "大图轮展表格样式——头部物料",
+    "fields": [
+      {
+        "name": "bgColor",
+        "control": "Select",
+        "label": "样式底色",
+        "options": [
+          {"value": "bg-blue", "text": "-蓝色-"},
+          {"value": "bg-yellow", "text": "-黄色-"},
+          {"value": "bg-red", "text": "-红色-"},
+          {"value": "bg-grey", "text": "-灰色-"},
+          {"value": "bg-green", "text": "-绿色-"},
+          {"value": "bg-purple", "text": "-紫色-"},
+          {"value": "bg-orange", "text": "-橘色-"},
+          {"value": "bg-transition", "text": "-小渐变-"},
+          {"value": "bg-border", "text": "-加边框-"},
+          {"value": "bg-shadow", "text": "-有底纹-"}
+        ]
+      },
+      {
+        "name": "title",
+        "control": "RedWordInput",
+        "label": "主标题",
+        "rules": {"required": true, "minBytesWithFilter": 10, "maxBytesWithFilter": 30}
+      },
+      {
+        "name": "titleLink",
+        "control": "Input",
+        "defaultValue": "http://",
+        "label": "标题链接",
+        "rules": {"required": true, "url": true, "maxBytes": 1024}
+      },
+      {
+        "name": "description",
+        "control": "TextArea",
+        "label": "描述",
+        "rules": {"required": true, "minBytes": 90, "maxBytes": 130}
+      },
+      {
+        "name": "showUrl",
+        "control": "Input",
+        "label": "显示URL",
+        "rules": {"required": true, "maxBytes": 30}
+      },
+      {
+        "name": "smallImageList",
+        "fieldset": "ListFieldset",
+        "length": 3,
+        "fields": [
+          {
+            "name": "image",
+            "control": "ImageUpload",
+            "label": "小图",
+            "rules": {"imageRequired": true},
+            "tips": "图片尺寸：80x70，不超过10k，jpg格式",
+            "uploadRules": {
+              "size": 10,
+              "types": ["jpg"],
+              "key": "111-head-smallImageList-image"
+            }
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "小图链接",
+            "defaultValue": "http://",
+            "rules": {"required": true, "url": true, "maxBytes": 1024}
+          }
+        ]
+      },
+      {
+        "name": "bigImageList",
+        "fieldset": "ListFieldset",
+        "length": [2,3,4],
+        "numLabel": "左侧大图数",
+        "fields": [
+          {
+            "name": "image",
+            "control": "ImageUpload",
+            "label": "大图",
+            "rules": {"imageRequired": true},
+            "tips": "图片尺寸：220x190，不超过20k，jpg格式",
+            "uploadRules": {
+              "size": 20,
+              "types": ["jpg"],
+              "key": "111-head-bigImageList-image"
+            }
+          },
+          {
+            "name": "link",
+            "control": "Input",
+            "label": "大图链接",
+            "defaultValue": "http://",
+            "rules": {"required": true, "url": true, "maxBytes": 1024}
+          }
+        ]
+      }
+    ],
+    "submit": true
+  },
+  {
+    "name": "table",
+    "fieldset": "TableFieldset",
+    "panelTitle": "大图轮展表格样式——表格物料",
+    "rowNum": [5],
+    "colNum": [3,4,5],
+    "headerFields": [
+      {
+        "name": "text",
+        "control": "Input",
+        "label": "文本",
+        "rules": {"required": true, "minBytes": 4, "maxBytes": [24,16,12]}
+      }
+    ],
+    "rowFields": [
+      {
+        "name": "text",
+        "control": "Input",
+        "label": "文本",
+        "rules": {"required": true, "minBytes": 4, "maxBytes": [24,16,12]}
+      },
+      {
+        "name": "link",
+        "control": "Input",
+        "label": "链接",
+        "defaultValue": "http://",
+        "rules": {"required": true, "url": true, "maxBytes": 1024}
+      }
+    ],
+    "submit": true
+  }
+]
