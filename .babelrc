@@ -1,0 +1,8 @@
+{
+  "presets": ["env", "stage-0", "react"],
+  "plugins":[
+    "syntax-dynamic-import",
+  	"transform-object-rest-spread",
+    "transform-runtime"
+  ]
+}

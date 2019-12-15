@@ -1,0 +1,109 @@
+@checkboxWarpPrefixCls: rc-radio;
+@checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
+@duration:.3s;
+@ease-in-out-circ:cubic-bezier(0.78, 0.14, 0.15, 0.86);
+@ease-out-back:cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+/* 一般状态 */
+.@{checkboxWarpPrefixCls} {
+  white-space: nowrap;
+  outline: none;
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  vertical-align: text-bottom;
+
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
+      border-color: #bcbcbc;
+    }
+  }
+
+  &-inner {
+    &:after {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      left: 4px;
+      top:4px;
+      border-radius: 6px;
+      display: table;
+      border-top: 0;
+      border-left: 0;
+      content: ' ';
+      background-color: #2196f3;
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      opacity: 0;
+      transition: transform @duration @ease-in-out-circ,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
+      -webkit-transition: -webkit-transform @duration @ease-in-out-circ,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
+    }
+
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 14px;
+    border-color: #d9d9d9;
+    background-color: #ffffff;
+    transition: border-color @duration @ease-in-out-circ, background-color @duration @ease-in-out-circ;
+  }
+
+  &-input {
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+    cursor: pointer;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+/* 选中状态 */
+.@{checkboxWarpPrefixCls}-checked {
+
+  .@{checkboxInnerPrefixCls} {
+    border-color: #d9d9d9;
+    &:after {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+      opacity: 1;
+      transition: transform @duration @ease-out-back,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
+      -webkit-transition: -webkit-transform @duration @ease-out-back,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
+    }
+  }
+}
+
+.@{checkboxWarpPrefixCls}-disabled {
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
+      border-color: #d9d9d9;
+    }
+  }
+  .@{checkboxInnerPrefixCls} {
+    border-color: #d9d9d9;
+    background-color: #f3f3f3;
+    &:after {
+      background-color: #cccccc;
+    }
+  }
+
+  .@{checkboxInnerPrefixCls}-input {
+    cursor: default;
+  }
+}
+
+.rc-radio-label {
+  display: inline-block;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.rc-radio-label-text {
+  padding: 0 8px;
+}

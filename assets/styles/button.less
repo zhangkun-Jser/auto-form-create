@@ -1,0 +1,44 @@
+.rc-btn {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  background-color: #2196f3;
+  border: 1px solid transparent;
+  padding: 0 13px;
+  height: 28px;
+  line-height: 28px;
+  color: #fff;
+  vertical-align: middle;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: #51adf6;
+  }
+
+  &:disabled {
+    color:#e4e4e4;
+    border:1px solid #e2e2e2;
+    background-color: #fff;
+    cursor: default;
+    opacity: 1;
+  }
+}
+
+.ghost-btn {
+  background-color: transparent;
+  border: 1px solid #2196f3;
+  color: #2196f3;
+
+  &:hover {
+    background-color: #f8f8f8;
+    opacity: 1;
+  }
+
+  &:disabled {
+    color:#e4e4e4;
+    border:1px solid #e2e2e2;
+    background-color: #fff;
+    cursor: default;
+    opacity: 1;
+  }
+}

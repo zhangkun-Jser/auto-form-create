@@ -1,0 +1,48 @@
+
+/*表单项左右结构**/
+.form-container {
+  margin: 0 auto;
+  background: #fafafa;
+  border: 1px solid #e1e4e8;
+}
+.form-item {
+  padding: 5px 0;
+}
+.form-item-last {
+  border-bottom: 0;
+}
+.form-item:after {
+  content: "";
+  display: table;
+  line-height: 0;
+  clear: both;
+}
+.form-item .item-label {
+  float: left;
+  text-align: right;
+  line-height: 28px;
+}
+.form-item .item-label em.red-star {
+  color: #c00;
+  margin-right: 5px;
+}
+.form-item .item-con{
+  line-height: 30px;
+}
+.item-con .error-control {
+  border-color: #c00 !important;
+}
+.item-con .form-item-tips {
+  margin: 10px 0 0;
+  color: #999;
+}
+.form-upload-status {
+  margin: 0;
+  color: #c00;
+}
+
+.form-validator-error {
+  display: block;
+  color: #c00;
+  margin: 0;
+}
