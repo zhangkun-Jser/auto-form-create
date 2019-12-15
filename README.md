@@ -1,6 +1,8 @@
 # auto-form-create 表单自动生成组件
 
-![npm](http://npm.sogou-inc.com/badge/v/auto-form-create.svg)
+[![NPM](https://nodei.co/npm/auto-form-create.png)](https://nodei.co/npm/auto-form-create/)
+
+[详细文档](https://zhangkun-jser.github.io/auto-form-doc)  
 
 ## 介绍
 - 本组件基于React开发，其中包括表单中常用的一些输入控件controls 和字段组fieldsets 可供使用。
@@ -101,3 +103,6 @@ npm test
 ```
 npm run doc
 ```
+
+## CHANGELOG
+[CHANGELOG](./CHANGELOG.md)
