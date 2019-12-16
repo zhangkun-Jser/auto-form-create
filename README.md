@@ -51,10 +51,10 @@ const ListFieldset = Fieldsets.ListFieldset;
 ```
 
 ```
-<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@1.2.6/dist/auto-form-create.min.css">
+<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.css">
 <script src="//unpkg.com/react/umd/react.production.min.js"></script>
 <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-<script src="//unpkg.com/auto-form-create@1.2.6/dist/auto-form-create.min.js"></script>
+<script src="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.js"></script>
 ```
 
 ## 设计方案
@@ -94,7 +94,7 @@ src          //源码
 test          //单元测试
 ```
 
-## Test Case
+## 单元测试
 ```
 npm test
 ```
@@ -105,4 +105,4 @@ npm run doc
 ```
 
 ## CHANGELOG
-[CHANGELOG](./CHANGELOG.md)
+[changelog](./CHANGELOG.md)

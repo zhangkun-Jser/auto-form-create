@@ -1,20 +1,21 @@
 # 更新日志
 
 ## todo list
-- 刚才看了一下，仅js minify 后也有 666kb，真6，这个体积有点大啊
+- 看了一下，仅js minify 后也有 666kb，真6，这个体积有点大啊
     - 把 moment 也改成 引入外部的
     - 引入 bundle analyze 工具，查找较大的依赖包
     - 看看能否改成 依赖 antd，这样能避免重复依赖 rc-component
-- 优化文档和demo
-    - 针对组件增加 demo，增加页面上可以运行的 demo
-    - 文档中代码增加语法高亮
-    - 1.4.0 的改动没有更新文档
-    - 把 文档和代码放到一起，参考 antd 的套路
 - 增加 NumberedTextArea 组件
 - [ ] 合并 webpack 配置
 - [ ] 更新 webpack4 以支持 treeShaking 优化
-- [x] 把 imageRequired，videoRequired 统一成 Required
 - [ ] 在下一个大版本更新中 把 radioFieldset 组件的 defaultRadio 改为 defaultValue
+
+## 2.3.0
+- 针对组件增加 demo，增加页面上可以运行的 demo
+- 文档中代码增加语法高亮
+- 1.4.0 的改动没有更新文档
+- 把 文档和代码放到一起，参考 antd 的套路
+- 把 imageRequired，videoRequired 统一成 Required
 
 ## 2.1.0
 - 修复当 radioFieldset 默认值为0时不选中的问题

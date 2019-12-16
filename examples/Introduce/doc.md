@@ -7,7 +7,6 @@
 [![NPM](https://nodei.co/npm/auto-form-create.png)](https://nodei.co/npm/auto-form-create/)
 
 ## 介绍
-- 本组件源于快速配置制作广告样式物料表单，但不乏一般适用性。
 - 本组件基于React开发，其中包括表单中常用的一些输入控件controls 和字段组fieldsets 可供使用。
 - 表单数据以`json对象`组织，可自动回填数据。
 - 可根据 `json对象数组` 自动渲染生成表单，表单中包含校验，并支持一些特殊的动态输入形式。
@@ -55,10 +54,10 @@ const ListFieldset = Fieldsets.ListFieldset;
 
 也可以全局引用构建后的文件，[Try it on CodePen](https://codepen.io/CharmSun/pen/ZJVNMa)
 ```
-<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@1.2.6/dist/auto-form-create.min.css">
+<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.css">
 <script src="//unpkg.com/react/umd/react.production.min.js"></script>
 <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-<script src="//unpkg.com/auto-form-create@1.2.6/dist/auto-form-create.min.js"></script>
+<script src="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.js"></script>
 ```
 
 ## 设计方案
