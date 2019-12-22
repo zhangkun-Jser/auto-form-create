@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 日期时间输入
  */
 import React from 'react';

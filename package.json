@@ -15,26 +15,26 @@
 		"compile": "npm run lessc && babel src --out-dir lib",
 		"prepublishOnly": "npm run compile && npm run build"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/zhangkun-Jser/auto-form-create.git"
-	},
 	"keywords": [
-		"react",
+    "react",
 		"form",
 		"components"
-	],
-	"author": "zk",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/zhangkun-Jser/auto-form-create/issues"
-	},
-	"homepage": "https://github.com/zhangkun-Jser/auto-form-create",
-	"files": [
+  ],
+  "files": [
 		"assets",
 		"lib",
 		"dist"
 	],
+	"author": "zk",
+	"license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangkun-Jser/auto-form-create.git"
+  },
+	"bugs": {
+		"url": "https://github.com/zhangkun-Jser/auto-form-create/issues"
+	},
+	"homepage": "https://zhangkun-jser.github.io/auto-form-doc",
 	"dependencies": {
 		"async-validator": "^1.9.0",
 		"classnames": "^2.2.5",

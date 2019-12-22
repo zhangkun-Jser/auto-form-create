@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 用于图片上传的 输入框
  */
 import React from 'react';

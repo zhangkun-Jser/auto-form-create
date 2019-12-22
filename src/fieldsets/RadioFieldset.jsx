@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 带radio可切换的字段组
  */
 import React from 'react';

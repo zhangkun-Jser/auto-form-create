@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: radio组件
  */
 import React from 'react';

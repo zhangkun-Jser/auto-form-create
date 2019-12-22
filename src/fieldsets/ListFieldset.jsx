@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 按个数重复的字段组
  */
 import React from 'react';

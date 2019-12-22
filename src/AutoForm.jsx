@@ -1,8 +1,5 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 自动生成组件的表单
- * last modified by caoyunyang at 2018-10-18
  */
 import React from 'react';
 import PropTypes from 'prop-types';

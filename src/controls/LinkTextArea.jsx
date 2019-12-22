@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 带插入链接的区块文本输入
  */
 import React from 'react';

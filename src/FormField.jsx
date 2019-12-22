@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 单项表单项,负责传值和校验
  */
 import React from 'react';

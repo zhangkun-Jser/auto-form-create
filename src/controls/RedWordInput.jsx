@@ -1,6 +1,4 @@
 /**
- * author: KCFE
- * date: 2017/10/12
  * description: 带插入标红词功能的 输入框
  */
 import React from 'react';
