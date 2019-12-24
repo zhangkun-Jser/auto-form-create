@@ -136,6 +136,7 @@ module.exports = {
          "error",
          "always"
       ],
+      'space-before-blocks': 2,
       'comma-dangle': [
         2,
         {
@@ -146,5 +147,18 @@ module.exports = {
           functions: 'always-multiline',
         },
       ],// 采用，当最后一个元素或属性与闭括号 ] 或 } 在 不同的行时，要求使用拖尾逗号；当在 同一行时，禁止使用拖尾逗号。
+      'keyword-spacing': [
+        2,
+        {
+          before: true, // 要求在关键字之前至少有一个空格
+          after: true, // 要求在关键字之后至少有一个空格
+          overrides: {
+            // 允许覆盖指定的关键字的空格风格
+            return: { after: true },
+            throw: { after: true },
+            case: { after: true },
+          },
+        },
+      ],
    }
 };

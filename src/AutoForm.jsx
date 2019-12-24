@@ -8,9 +8,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import Button from './common/Button';
 import FieldConverter from './FieldConverter';
 
-
-class AutoForm extends React.Component{
-
+class AutoForm extends React.Component {
     static propTypes = {
         // 字段标签宽度
         labelWidth: PropTypes.number,
@@ -22,14 +20,14 @@ class AutoForm extends React.Component{
         onSubmit: PropTypes.func,
         // 内容变化回调
         onChange: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         labelWidth: 140,
-    }
+    };
 
-    static getDerivedStateFromProps(nextProps){
-        if('value' in nextProps){
+    static getDerivedStateFromProps(nextProps) {
+        if ('value' in nextProps) {
             return {
                 value: nextProps.value || [],
             };
@@ -37,7 +35,7 @@ class AutoForm extends React.Component{
         return null;
     }
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             value: props.value || {},
@@ -47,61 +45,62 @@ class AutoForm extends React.Component{
         this.refFields = {};
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event && event.preventDefault();
-        if(!this.validate()) return;
+        if (!this.validate()) return;
 
-        const {onSubmit } = this.props;
+        const { onSubmit } = this.props;
 
-        if(onSubmit){
+        if (onSubmit) {
             onSubmit(this.getValues());
         }
-    }
+    };
 
-    getValues = () => Object.keys(this.refFields)
-        .reduce((acc, key) => ({...acc, [key]: this.refFields[key].getValue() }), {});
+    getValues = () =>
+        Object.keys(this.refFields).reduce((acc, key) => ({ ...acc, [key]: this.refFields[key].getValue() }), {});
 
     validate = () => {
-        return Object.keys(this.refFields)
-            .reduce((suc, key) => this.refFields[key].validate() && suc, true);
-    }
+        return Object.keys(this.refFields).reduce((suc, key) => this.refFields[key].validate() && suc, true);
+    };
 
-    render(){
-        const {descriptor, labelWidth, onSubmit, onChange, context, children } = this.props;
-        const {value = {} } = this.state;
+    render() {
+        const { descriptor, labelWidth, onSubmit, onChange, context, children } = this.props;
+        const { value = {} } = this.state;
 
-        return <form onSubmit={this.handleSubmit}>
-            {descriptor.map((item) => {
-                const {name: itemName, submit } = item;
-                const fieldProps = {
-                    context,
-                    labelWidth,
-                    key: itemName,
-                    ...item,
-                    value: value[itemName],
-                    fieldRef: (field) => (this.refFields[itemName] = field),
-                    onSubmit: ('fieldset' in item) && submit && onSubmit,
-                    onChange: (changedValue) => {
-                        if(!('value' in this.props)){
-                            this.setState({value: {...value, [itemName]: changedValue } });
-                        }
-                        if(onChange){
-                            onChange({...value, [itemName]: changedValue });
-                        }
-                    },
-                };
-                return <FieldConverter {...fieldProps} />;
-            })}
-            {children
-                ? children
-                : <div className="form-item">
-                    <div className="item-con" style={{ marginLeft: labelWidth + 10 }}>
-                        <Button htmlType="submit">
-                            确定提交
-                        </Button>
+        return (
+            <form onSubmit={this.handleSubmit}>
+                {descriptor.map(item => {
+                    const { name: itemName, submit } = item;
+                    const fieldProps = {
+                        context,
+                        labelWidth,
+                        key: itemName,
+                        ...item,
+                        value: value[itemName],
+                        fieldRef: field => (this.refFields[itemName] = field),
+                        onSubmit: 'fieldset' in item && submit && onSubmit,
+                        onChange: changedValue => {
+                            if (!('value' in this.props)) {
+                                this.setState({ value: { ...value, [itemName]: changedValue } });
+                            }
+                            if (onChange) {
+                                onChange({ ...value, [itemName]: changedValue });
+                            }
+                        },
+                    };
+                    return <FieldConverter {...fieldProps} />;
+                })}
+                {children ? (
+                    children
+                ) : (
+                    <div className="form-item">
+                        <div className="item-con" style={{ marginLeft: labelWidth + 10 }}>
+                            <Button htmlType="submit">确定提交</Button>
+                        </div>
                     </div>
-                </div>}
-        </form>;
+                )}
+            </form>
+        );
     }
 }
 

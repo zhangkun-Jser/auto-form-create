@@ -5,9 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './common/Button';
 
-
-class Form extends React.Component{
-
+class Form extends React.Component {
     static propTypes = {
         // 字段标签宽度
         labelWidth: PropTypes.number,
@@ -17,24 +15,24 @@ class Form extends React.Component{
         data: PropTypes.object,
         // 表单提交回调
         onSubmit: PropTypes.func,
-    }
+    };
 
     static defaultProps = {
         labelWidth: 140,
         data: {},
-    }
+    };
 
-    constructor(props){
+    constructor(props) {
         super(props);
         // 关联的字段和字段组的实例
         this.refFields = {};
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event && event.preventDefault();
-        if(!this.validate()) return;
+        if (!this.validate()) return;
 
-        if(this.props.onSubmit){
+        if (this.props.onSubmit) {
             const values = this.getValues();
             this.props.onSubmit(values);
         }
@@ -42,9 +40,9 @@ class Form extends React.Component{
 
     getValues = () => {
         const values = {};
-        Object.keys(this.refFields).forEach((key) => {
+        Object.keys(this.refFields).forEach(key => {
             const value = this.refFields[key].getValue();
-            Object.assign(values, {[key]: value, });
+            Object.assign(values, { [key]: value });
         });
         return values;
     };
@@ -56,25 +54,25 @@ class Form extends React.Component{
         }, true);
     };
 
-    render(){
-        const {data, children, labelWidth, } = this.props;
-        const fields = React.Children.map(children, (child) => {
-            const {name, labelWidth: childLabelWidth, } = child.props;
+    render() {
+        const { data, children, labelWidth } = this.props;
+        const fields = React.Children.map(children, child => {
+            const { name, labelWidth: childLabelWidth } = child.props;
 
             return React.cloneElement(child, {
                 value: data[name],
                 labelWidth: childLabelWidth || labelWidth,
-                ref: (field) => {this.refFields[name] = field;},
+                ref: field => {
+                    this.refFields[name] = field;
+                },
             });
         });
         return (
             <form onSubmit={this.handleSubmit}>
                 {fields}
                 <div className="form-item">
-                    <div className="item-con" style={{marginLeft: labelWidth + 10, }}>
-                        <Button htmlType="submit">
-              确定提交
-                        </Button>
+                    <div className="item-con" style={{ marginLeft: labelWidth + 10 }}>
+                        <Button htmlType="submit">确定提交</Button>
                     </div>
                 </div>
             </form>
