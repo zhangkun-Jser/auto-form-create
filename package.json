@@ -16,21 +16,21 @@
 		"prepublishOnly": "npm run compile && npm run build"
 	},
 	"keywords": [
-    "react",
+		"react",
 		"form",
 		"components"
-  ],
-  "files": [
+	],
+	"files": [
 		"assets",
 		"lib",
 		"dist"
 	],
 	"author": "zk",
 	"license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zhangkun-Jser/auto-form-create.git"
-  },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zhangkun-Jser/auto-form-create.git"
+	},
 	"bugs": {
 		"url": "https://github.com/zhangkun-Jser/auto-form-create/issues"
 	},
@@ -89,7 +89,7 @@
 		"sinon": "^4.1.3",
 		"style-loader": "^0.19.0",
 		"webpack": "^3.7.1",
-		"webpack-dev-server": "^2.11.5"
+		"webpack-dev-server": ">=3.1.11"
 	},
 	"eslintIgnore": [
 		"dist/**",
