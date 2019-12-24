@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { polyfill, } from 'react-lifecycles-compat';
+import { polyfill } from 'react-lifecycles-compat';
 
 import Button from './common/Button';
 import FieldConverter from './FieldConverter';
@@ -51,7 +51,7 @@ class AutoForm extends React.Component{
         event && event.preventDefault();
         if(!this.validate()) return;
 
-        const {onSubmit, } = this.props;
+        const {onSubmit } = this.props;
 
         if(onSubmit){
             onSubmit(this.getValues());
@@ -59,7 +59,7 @@ class AutoForm extends React.Component{
     }
 
     getValues = () => Object.keys(this.refFields)
-        .reduce((acc, key) => ({...acc, [key]: this.refFields[key].getValue(), }), {});
+        .reduce((acc, key) => ({...acc, [key]: this.refFields[key].getValue() }), {});
 
     validate = () => {
         return Object.keys(this.refFields)
@@ -67,12 +67,12 @@ class AutoForm extends React.Component{
     }
 
     render(){
-        const {descriptor, labelWidth, onSubmit, onChange, context, children, } = this.props;
-        const {value = {}, } = this.state;
+        const {descriptor, labelWidth, onSubmit, onChange, context, children } = this.props;
+        const {value = {} } = this.state;
 
         return <form onSubmit={this.handleSubmit}>
             {descriptor.map((item) => {
-                const {name: itemName, submit, } = item;
+                const {name: itemName, submit } = item;
                 const fieldProps = {
                     context,
                     labelWidth,
@@ -83,10 +83,10 @@ class AutoForm extends React.Component{
                     onSubmit: ('fieldset' in item) && submit && onSubmit,
                     onChange: (changedValue) => {
                         if(!('value' in this.props)){
-                            this.setState({value: {...value, [itemName]: changedValue, }, });
+                            this.setState({value: {...value, [itemName]: changedValue } });
                         }
                         if(onChange){
-                            onChange({...value, [itemName]: changedValue, });
+                            onChange({...value, [itemName]: changedValue });
                         }
                     },
                 };
@@ -95,7 +95,7 @@ class AutoForm extends React.Component{
             {children
                 ? children
                 : <div className="form-item">
-                    <div className="item-con" style={{ marginLeft: labelWidth + 10, }}>
+                    <div className="item-con" style={{ marginLeft: labelWidth + 10 }}>
                         <Button htmlType="submit">
                             确定提交
                         </Button>

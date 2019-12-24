@@ -135,6 +135,16 @@ module.exports = {
       "semi": [
          "error",
          "always"
-      ]
+      ],
+      'comma-dangle': [
+        2,
+        {
+          arrays: 'always-multiline',
+          objects: 'always-multiline',
+          imports: 'always-multiline',
+          exports: 'always-multiline',
+          functions: 'always-multiline',
+        },
+      ],// 采用，当最后一个元素或属性与闭括号 ] 或 } 在 不同的行时，要求使用拖尾逗号；当在 同一行时，禁止使用拖尾逗号。
    }
 };
