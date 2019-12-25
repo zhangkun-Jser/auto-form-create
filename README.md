@@ -51,10 +51,10 @@ const ListFieldset = Fieldsets.ListFieldset;
 ```
 
 ```
-<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.css">
+<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@2.3.2/dist/auto-form-create.min.css">
 <script src="//unpkg.com/react/umd/react.production.min.js"></script>
 <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-<script src="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.js"></script>
+<script src="//unpkg.com/auto-form-create@2.3.2/dist/auto-form-create.min.js"></script>
 ```
 
 ## 设计方案

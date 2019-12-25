@@ -12,7 +12,7 @@ module.exports = {
         publicPath: 'dist/',
     },
     resolve: {
-        extensions: ['.js', '.jsx', ],
+        extensions: ['.js', '.jsx'],
     },
     module: {
         rules: [
@@ -23,9 +23,7 @@ module.exports = {
             },
             {
                 test: /\.md$/,
-                use: [
-                    'raw-loader',
-                ],
+                use: ['raw-loader'],
             },
             {
                 test: /\.css/,
@@ -33,23 +31,17 @@ module.exports = {
                     'style-loader',
                     {
                         loader: 'css-loader',
-                        options: {minimize: true, },
+                        options: { minimize: true },
                     },
                 ],
             },
             {
                 test: /\.less/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'less-loader',
-                ],
+                use: ['style-loader', 'css-loader', 'less-loader'],
             },
         ],
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-    ],
+    plugins: [new webpack.HotModuleReplacementPlugin()],
     devtool: 'source-map',
     devServer: {
         contentBase: path.join(__dirname, 'examples'),
@@ -59,9 +51,9 @@ module.exports = {
         // historyApiFallback: true,
         proxy: {
             '*.do': {
-                bypass: function (req){
+                bypass: function(req) {
                     console.log(req.url); // eslint-disable-line no-console
-                    if(req.url.indexOf('.do') !== -1){
+                    if (req.url.indexOf('.do') !== -1) {
                         req.method = 'GET';
                         return '/mock' + req.url.replace('.do', '.json');
                     }

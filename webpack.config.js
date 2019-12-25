@@ -14,9 +14,9 @@ module.exports = {
         filename: 'biz-auto-form.min.js',
     },
     resolve: {
-        extensions: ['.js', '.jsx', ],
+        extensions: ['.js', '.jsx'],
     },
-    externals: {react: 'React', },
+    externals: { react: 'React' },
     module: {
         rules: [
             {
@@ -27,10 +27,7 @@ module.exports = {
             {
                 test: /\.less/,
                 use: ExtractTextPlugin.extract({
-                    use: [
-                        {loader: 'css-loader', options: {minimize: true, }, },
-                        {loader: 'less-loader', },
-                    ],
+                    use: [{ loader: 'css-loader', options: { minimize: true } }, { loader: 'less-loader' }],
                 }),
             },
         ],

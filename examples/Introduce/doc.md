@@ -54,10 +54,10 @@ const ListFieldset = Fieldsets.ListFieldset;
 
 也可以全局引用构建后的文件，[Try it on CodePen](https://codepen.io/CharmSun/pen/ZJVNMa)
 ```
-<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.css">
+<link rel="stylesheet" type="text/css" href="//unpkg.com/auto-form-create@2.3.2/dist/auto-form-create.min.css">
 <script src="//unpkg.com/react/umd/react.production.min.js"></script>
 <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
-<script src="//unpkg.com/auto-form-create@2.3.0/dist/auto-form-create.min.js"></script>
+<script src="//unpkg.com/auto-form-create@2.3.2/dist/auto-form-create.min.js"></script>
 ```
 
 ## 设计方案
