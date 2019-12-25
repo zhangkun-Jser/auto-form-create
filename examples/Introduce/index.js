@@ -2,15 +2,15 @@ import React from 'react';
 import MarkdownElement from '../MarkdownElement';
 import doc from './doc.md';
 
-class IntroduceDoc extends React.Component{
-    constructor(props){
+class IntroduceDoc extends React.Component {
+    constructor(props) {
         super(props);
     }
 
-    render(){
+    render() {
         return (
             <div>
-                <MarkdownElement text={doc}/>
+                <MarkdownElement text={doc} />
             </div>
         );
     }
