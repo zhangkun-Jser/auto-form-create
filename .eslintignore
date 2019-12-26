@@ -1,0 +1,7 @@
+node_modules/
+dev/
+dist/
+examples/
+lib/
+test/
+
