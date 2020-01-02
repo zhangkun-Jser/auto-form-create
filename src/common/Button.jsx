@@ -5,9 +5,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-
-class Button extends React.Component{
-    render(){
+class Button extends React.Component {
+    render() {
         const props = this.props;
         return (
             <button
@@ -26,7 +25,7 @@ class Button extends React.Component{
 Button.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    htmlType: PropTypes.oneOf(['submit', 'button', 'reset', ]),
+    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
 };
