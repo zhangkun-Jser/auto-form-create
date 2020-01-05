@@ -2,19 +2,18 @@
  * description: 通用方法
  */
 
-
 /**
  * 获取字符串字节长度
  * @param str
  * @returns {number}
  */
-export const getStrBytes =  (str) => {
+export const getStrBytes = str => {
     let byteLen = 0;
-    if(str){
-        for(let i = 0, l = str.length; i < l; i++){
-            if(str.charCodeAt(i) > 255){
+    if (str) {
+        for (let i = 0, l = str.length; i < l; i++) {
+            if (str.charCodeAt(i) > 255) {
                 byteLen += 2;
-            }else{
+            } else {
                 byteLen++;
             }
         }
@@ -27,8 +26,8 @@ export const getStrBytes =  (str) => {
  * 去掉空格字符
  * @param str
  */
-export const trim = (str) => {
-    if(str){
+export const trim = str => {
+    if (str) {
         return str.replace(/(^\s*)|(\s*$)/g, '');
     }
     return '';
@@ -38,8 +37,8 @@ export const trim = (str) => {
  * 插入标红词和插入链接中，过滤掉符号
  * @param str
  */
-export const filterSymbol =  (str) => {
-    if(str){
+export const filterSymbol = str => {
+    if (str) {
         return str.replace(/\{(.*?)\|\|.*?\}/g, '$1').replace(/[{}]/g, '');
     }
     return '';
@@ -54,9 +53,9 @@ export const filterSymbol =  (str) => {
  */
 export const pick = (obj, keys) => {
     let result = {};
-    for(let i = 0; i < keys.length; i++){
+    for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
-        if(key in obj){
+        if (key in obj) {
             result[key] = obj[key];
         }
     }
@@ -74,7 +73,7 @@ export const omit = (obj, keys) => {
     const shallowCopy = {
         ...obj,
     };
-    for(let i = 0; i < keys.length; i++){
+    for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
         delete shallowCopy[key];
     }
@@ -82,11 +81,11 @@ export const omit = (obj, keys) => {
 };
 
 export const flattenItemRules = (item, ruleIndex) => {
-    const {rules, } = item;
+    const { rules } = item;
     return rules
         ? {
             ...item,
-            rules: ['maxBytes', 'minBytes', ].reduce(
+            rules: ['maxBytes', 'minBytes'].reduce(
                 (mergedRules, currentKey) =>
                     Array.isArray(mergedRules[currentKey])
                         ? {
@@ -94,7 +93,7 @@ export const flattenItemRules = (item, ruleIndex) => {
                             [currentKey]: mergedRules[currentKey][ruleIndex],
                         }
                         : mergedRules,
-                rules
+                rules,
             ),
         }
         : item;
