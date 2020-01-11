@@ -11,19 +11,17 @@ import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
-
 const now = moment();
 now.locale('zh-cn').utcOffset(8);
 
 const dateTimeFormat = 'YYYY-MM-DD HH:mm:ss';
 const timePickerElement = <TimePickerPanel defaultValue={moment('00:00:00', 'HH:mm:ss')} />;
 
-
-class DateTimeInput extends React.Component{
-    constructor(props){
+class DateTimeInput extends React.Component {
+    constructor(props) {
         super(props);
         let value = null;
-        if(props.value){
+        if (props.value) {
             value = moment(props.value, dateTimeFormat);
         }
         this.state = {
@@ -33,37 +31,40 @@ class DateTimeInput extends React.Component{
 
     getFormatter = () => {
         return this.props.showTime ? dateTimeFormat : 'YYYY-MM-DD';
-    }
-    handleChange = (value) => {
+    };
+    handleChange = value => {
         // console.log('DatePicker change: ', (value && value.format(format)));
         this.setState({
             value,
         });
-        const {onChange, } = this.props;
-        if(onChange){
-            onChange(value && value.format(this.getFormatter()) || '');
+        const { onChange } = this.props;
+        if (onChange) {
+            onChange((value && value.format(this.getFormatter())) || '');
         }
     };
 
-    render(){
+    render() {
         const props = this.props;
-        const calendar = (<Calendar
-            locale={zhCN}
-            style={{ zIndex: 1000, }}
-            dateInputPlaceholder={props.showTime ? '请输入日期时间' : '请输入日期'}
-            formatter={this.getFormatter()}
-            timePicker={props.showTime ? timePickerElement : null}
-            defaultValue={now}
-            showDateInput={props.showDateInput}
-            disabledDate={props.disabledDate}
-        />);
+        const calendar = (
+            <Calendar
+                locale={zhCN}
+                style={{ zIndex: 1000 }}
+                dateInputPlaceholder={props.showTime ? '请输入日期时间' : '请输入日期'}
+                formatter={this.getFormatter()}
+                timePicker={props.showTime ? timePickerElement : null}
+                defaultValue={now}
+                showDateInput={props.showDateInput}
+                disabledDate={props.disabledDate}
+            />
+        );
         return (
-            <div style={{
-                boxSizing: 'border-box',
-                position: 'relative',
-                display: 'block',
-                lineHeight: 1.5,
-            }}
+            <div
+                style={{
+                    boxSizing: 'border-box',
+                    position: 'relative',
+                    display: 'block',
+                    lineHeight: 1.5,
+                }}
             >
                 <DatePicker
                     animation="slide-up"
@@ -71,7 +72,8 @@ class DateTimeInput extends React.Component{
                     calendar={calendar}
                     value={this.state.value}
                     onChange={this.handleChange}
-                >{({ value, }) => (
+                >
+                    {({ value }) => (
                         <span tabIndex="0">
                             <input
                                 placeholder={props.showTime ? '请选择日期时间' : '请选择日期'}
@@ -79,7 +81,7 @@ class DateTimeInput extends React.Component{
                                 disabled={props.disabled}
                                 readOnly
                                 tabIndex="-1"
-                                value={value && value.format(this.getFormatter()) || ''}
+                                value={(value && value.format(this.getFormatter())) || ''}
                             />
                         </span>
                     )}
@@ -102,7 +104,7 @@ DateTimeInput.defaultProps = {
     showTime: true,
     showDateInput: true,
     disabled: false,
-    disabledDate: (current) => {
+    disabledDate: current => {
         // can not select days before today
         return current && current.valueOf() < moment().startOf('day');
     },

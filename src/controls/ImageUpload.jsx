@@ -13,19 +13,13 @@ const imageTypes = {
     gif: 'image/gif',
 };
 
-class ImageUpload extends React.Component{
-    constructor(props){
+class ImageUpload extends React.Component {
+    constructor(props) {
         super(props);
         const {
             action: defaultAction,
             uploadRules,
-            context: {
-                ImageUpload: {
-                    data,
-                    action,
-                    responseParser = ({data, }) => data,
-                    name,
-                } = {}, } = {},
+            context: { ImageUpload: { data, action, responseParser = ({ data }) => data, name } = {} } = {},
         } = props;
         const me = this;
         this.uploaderProps = {
@@ -35,12 +29,12 @@ class ImageUpload extends React.Component{
                 key: uploadRules.key,
                 ...data,
             },
-            beforeUpload(file){
-                if(uploadRules.types){
-                    const types = uploadRules.types.map((type) => {
+            beforeUpload(file) {
+                if (uploadRules.types) {
+                    const types = uploadRules.types.map(type => {
                         return imageTypes[type];
                     });
-                    if(types.indexOf(file.type) === -1){
+                    if (types.indexOf(file.type) === -1) {
                         me.setState({
                             status: '图片格式不符合',
                         });
@@ -48,24 +42,24 @@ class ImageUpload extends React.Component{
                     }
                 }
 
-                if(file.size > uploadRules.size * 1024){
+                if (file.size > uploadRules.size * 1024) {
                     me.setState({
                         status: '图片超过了限制大小',
                     });
                     return false;
                 }
             },
-            onSuccess(response){
-                if(response.status === 1){
+            onSuccess(response) {
+                if (response.status === 1) {
                     me.handleChange(responseParser(response));
-                }else{
+                } else {
                     me.setState({
                         value: '',
                         status: '上传失败：' + response.errors.join(','),
                     });
                 }
             },
-            onError(err){
+            onError(err) {
                 me.setState({
                     value: '',
                     status: '上传失败：' + err.message,
@@ -78,8 +72,8 @@ class ImageUpload extends React.Component{
         };
     }
 
-    componentWillReceiveProps(nextProps){
-        if('value' in nextProps){
+    componentWillReceiveProps(nextProps) {
+        if ('value' in nextProps) {
             this.setState({
                 value: nextProps.value,
                 status: null,
@@ -87,35 +81,31 @@ class ImageUpload extends React.Component{
         }
     }
 
-    handleChange = (value) => {
-        const {onChange, } = this.props;
-        if(!('value' in this.props)){
+    handleChange = value => {
+        const { onChange } = this.props;
+        if (!('value' in this.props)) {
             this.setState({
                 value,
                 status: null,
             });
         }
-        if(onChange){
+        if (onChange) {
             onChange(value);
         }
     };
 
-    render(){
+    render() {
         const props = this.props;
         return (
             <div>
                 <Upload
                     {...this.uploaderProps}
-                    style={{outline: 'none', cursor: 'pointer', }}
+                    style={{ outline: 'none', cursor: 'pointer' }}
                     disabled={props.disabled}
                 >
-                    <Input
-                        className={props.className}
-                        value={this.state.value}
-                        disabled
-                    />
-                    <Button className="ghost-btn" style={{marginLeft: 5, }} disabled={props.disabled}>
-            上传图片
+                    <Input className={props.className} value={this.state.value} disabled />
+                    <Button className="ghost-btn" style={{ marginLeft: 5 }} disabled={props.disabled}>
+                        上传图片
                     </Button>
                 </Upload>
                 {this.state.status ? <p className="form-upload-status">{this.state.status}</p> : null}
