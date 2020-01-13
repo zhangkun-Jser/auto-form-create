@@ -6,35 +6,35 @@ import PropTypes from 'prop-types';
 import TextArea from './TextArea';
 import Button from '../common/Button';
 
-class LinkTextArea extends React.Component{
-    constructor(props){
+class LinkTextArea extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             value: props.value || '',
         };
     }
 
-    componentWillReceiveProps(nextProps){
-        if('value' in nextProps){
+    componentWillReceiveProps(nextProps) {
+        if ('value' in nextProps) {
             this.setState({
                 value: nextProps.value || '',
             });
         }
     }
 
-    handleChange = (value) => {
-        const {onChange, } = this.props;
-        if(!('value' in this.props)){
-            this.setState({ value, });
+    handleChange = value => {
+        const { onChange } = this.props;
+        if (!('value' in this.props)) {
+            this.setState({ value });
         }
-        if(onChange){
+        if (onChange) {
             onChange(value);
         }
     };
 
     insertLink = () => {
         const link = prompt('请输入超链接', 'http://');
-        if(!link){
+        if (!link) {
             return;
         }
         const elem = this.textareaElem;
@@ -45,21 +45,21 @@ class LinkTextArea extends React.Component{
         const word = selectedStr ? selectedStr : '链接词';
         const newStr = strBefore + '{' + word + '||' + link + '}' + strAfter;
 
-        this.setState({value: newStr, }, () => {
+        this.setState({ value: newStr }, () => {
             elem.selectionStart = newStr.indexOf('{') + 1;
             elem.selectionEnd = newStr.indexOf('||');
             elem.blur();
             elem.focus();
         });
-        const {onChange, } = this.props;
-        if(onChange){
+        const { onChange } = this.props;
+        if (onChange) {
             onChange(newStr);
         }
     };
 
-    render(){
+    render() {
         const props = this.props;
-        const {limiter, } = this.props;
+        const { limiter } = this.props;
         return (
             <div>
                 <div>
@@ -72,15 +72,14 @@ class LinkTextArea extends React.Component{
                         }}
                         disabled={props.disabled}
                         onChange={this.handleChange}
-                        textRef={(textarea) => { this.textareaElem = textarea; }}
+                        textRef={textarea => {
+                            this.textareaElem = textarea;
+                        }}
                     />
                 </div>
-                <div style={{marginTop: 5, }}>
-                    <Button
-                        onClick={this.insertLink}
-                        disabled={props.disabled}
-                    >
-            插入链接词
+                <div style={{ marginTop: 5 }}>
+                    <Button onClick={this.insertLink} disabled={props.disabled}>
+                        插入链接词
                     </Button>
                 </div>
             </div>

@@ -2,22 +2,21 @@
  * description: 文本输入
  */
 import React from 'react';
-import { polyfill, } from 'react-lifecycles-compat';
+import { polyfill } from 'react-lifecycles-compat';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Limiter from '../common/Limiter';
 
-
-class Input extends React.Component{
-    constructor(props){
+class Input extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             value: props.value || '',
         };
     }
 
-    static getDerivedStateFromProps(nextProps){
-        if('value' in nextProps){
+    static getDerivedStateFromProps(nextProps) {
+        if ('value' in nextProps) {
             return {
                 value: nextProps.value || '',
             };
@@ -25,19 +24,19 @@ class Input extends React.Component{
         return null;
     }
 
-    handleChange = ({target: {value, }, }) => {
-        const {onChange, } = this.props;
-        if(!('value' in this.props)){
-            this.setState({ value, });
+    handleChange = ({ target: { value } }) => {
+        const { onChange } = this.props;
+        if (!('value' in this.props)) {
+            this.setState({ value });
         }
-        if(onChange){
+        if (onChange) {
             onChange(value);
         }
     };
 
-    render(){
-        const {style, className, disabled, limiter, inputRef, placeholder, } = this.props;
-        const {value, } = this.state;
+    render() {
+        const { style, className, disabled, limiter, inputRef, placeholder } = this.props;
+        const { value } = this.state;
         return (
             <span>
                 <input
@@ -50,15 +49,14 @@ class Input extends React.Component{
                     ref={inputRef}
                     placeholder={placeholder}
                 />
-                {limiter ?
+                {limiter ? (
                     <Limiter
                         type={limiter.type || 'byte'}
                         max={limiter.max}
                         filterSymbol={limiter.filterSymbol}
                         inputValue={this.state.value || ''}
                     />
-                    : null
-                }
+                ) : null}
             </span>
         );
     }
