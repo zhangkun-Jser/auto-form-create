@@ -6,37 +6,36 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Limiter from '../common/Limiter';
 
-
-class TextArea extends React.Component{
-    constructor(props){
+class TextArea extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             value: props.value || '',
         };
     }
 
-    componentWillReceiveProps(nextProps){
-        if('value' in nextProps){
+    componentWillReceiveProps(nextProps) {
+        if ('value' in nextProps) {
             this.setState({
                 value: nextProps.value || '',
             });
         }
     }
 
-    handleChange = (e) => {
-        const { value, } = e.target;
-        const {onChange, } = this.props;
-        if(!('value' in this.props)){
-            this.setState({ value, });
+    handleChange = e => {
+        const { value } = e.target;
+        const { onChange } = this.props;
+        if (!('value' in this.props)) {
+            this.setState({ value });
         }
-        if(onChange){
+        if (onChange) {
             onChange(value);
         }
     };
 
-    render(){
+    render() {
         const props = this.props;
-        const {limiter, textRef, } = this.props;
+        const { limiter, textRef } = this.props;
         return (
             <span>
                 <textarea
@@ -47,16 +46,15 @@ class TextArea extends React.Component{
                     disabled={props.disabled}
                     ref={textRef}
                 />
-                {limiter ?
+                {limiter ? (
                     <Limiter
-                        style={{verticalAlign: 'top', }}
+                        style={{ verticalAlign: 'top' }}
                         type={limiter.type || 'byte'}
                         max={limiter.max}
                         filterSymbol={limiter.filterSymbol}
                         inputValue={this.state.value || ''}
                     />
-                    : null
-                }
+                ) : null}
             </span>
         );
     }
