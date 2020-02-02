@@ -6,28 +6,28 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Button from '../common/Button';
 
-class RedWordInput extends React.Component{
-    constructor(props){
+class RedWordInput extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             value: props.value || '',
         };
     }
 
-    componentWillReceiveProps(nextProps){
-        if('value' in nextProps){
+    componentWillReceiveProps(nextProps) {
+        if ('value' in nextProps) {
             this.setState({
                 value: nextProps.value || '',
             });
         }
     }
 
-    handleChange = (value) => {
-        const {onChange, } = this.props;
-        if(!('value' in this.props)){
-            this.setState({ value, });
+    handleChange = value => {
+        const { onChange } = this.props;
+        if (!('value' in this.props)) {
+            this.setState({ value });
         }
-        if(onChange){
+        if (onChange) {
             onChange(value);
         }
     };
@@ -41,21 +41,21 @@ class RedWordInput extends React.Component{
         const word = selectedStr ? selectedStr : '标红词';
         const newStr = strBefore + '{' + word + '}' + strAfter;
 
-        this.setState({value: newStr, }, () => {
+        this.setState({ value: newStr }, () => {
             elem.selectionStart = newStr.indexOf('{') + 1;
             elem.selectionEnd = newStr.indexOf('}');
             elem.blur();
             elem.focus();
         });
-        const {onChange, } = this.props;
-        if(onChange){
+        const { onChange } = this.props;
+        if (onChange) {
             onChange(newStr);
         }
     };
 
-    render(){
+    render() {
         const props = this.props;
-        const {limiter, } = this.props;
+        const { limiter } = this.props;
         return (
             <div>
                 <div>
@@ -68,15 +68,14 @@ class RedWordInput extends React.Component{
                         }}
                         disabled={props.disabled}
                         onChange={this.handleChange}
-                        inputRef={(input) => { this.inputElem = input; }}
+                        inputRef={input => {
+                            this.inputElem = input;
+                        }}
                     />
                 </div>
-                <div style={{marginTop: 5, }}>
-                    <Button
-                        onClick={this.insertRedWord}
-                        disabled={props.disabled}
-                    >
-            插入标红词
+                <div style={{ marginTop: 5 }}>
+                    <Button onClick={this.insertRedWord} disabled={props.disabled}>
+                        插入标红词
                     </Button>
                 </div>
             </div>
