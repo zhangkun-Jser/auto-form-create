@@ -58,7 +58,7 @@ const ListFieldset = Fieldsets.ListFieldset;
 ```
 
 ## 设计方案
-![image](./assets/auto-form.png)
+![image](./assets/images/auto-form.png)
 
 AutoForm组件通过data属性`（json对象）`可以回填表单数据json对象，
 通过descriptor属性`（json对象的数组，每一项对应一个字段）`自动渲染生成整个表单，
